@@ -31,7 +31,7 @@ export default function Home({ allPostsData, allPracticeData }) {
           <title>{siteTitle}</title>
         </Head>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>サンプルページ</h2>
+          <h2 className={utilStyles.headingLg}>デモ&練習ページ</h2>
           <ul>
             {allPracticeData.map(({ id }) => (
               <li className={utilStyles.listItem} key={id}>
