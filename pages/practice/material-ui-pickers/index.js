@@ -86,6 +86,9 @@ export default function reduxCounter() {
                     />
                 </Grid>
             </MuiPickersUtilsProvider>
+            <div>
+                メモ :2021/09/04 23:30 メモ
+            </div>
         </Layout>
     )
 }
