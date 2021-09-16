@@ -3,9 +3,14 @@ import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Box from '@material-ui/core/Box';
+import Drawer from '@material-ui/core/Drawer';
+import TwitterExsample from '@/components/TwitterExsample'
+
 
 const name = 'reorome'
 export const siteTitle = 'Next.js Sample Website'
+const drawerWidth = 300;
 
 export default function Layout({ children, home }) {
   return (
@@ -61,6 +66,20 @@ export default function Layout({ children, home }) {
         )}
       </header>
       <main>{children}</main>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+          },
+        }}
+        variant="permanent"
+        anchor="right"
+      >
+        <TwitterExsample></TwitterExsample>
+      </Drawer>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">

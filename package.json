@@ -20,14 +20,12 @@
     "next": "^11.0.0",
     "path": "^0.12.7",
     "pg-promise": "^10.11.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^6.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.4",
+    "react-twitter-embed": "^3.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "sass": "^1.37.0",
-    "tailwindcss": "^2.2.7"
+    "sass": "^1.37.0"
   }
 }
