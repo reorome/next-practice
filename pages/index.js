@@ -1,24 +1,24 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import { getPracticeData } from '../lib/practice'
-import Link from 'next/link'
-import Date from '../components/date'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
+import { getSortedPostsData } from '../lib/posts';
+import { getPracticeData } from '../lib/practice';
+import Link from 'next/link';
+import Date from '../components/date';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 // import rootReducer from './reducers'
-import store from "../store/store.js"
+import store from '../store/store.js';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  const allPracticeData = getPracticeData()
+  const allPostsData = getSortedPostsData();
+  const allPracticeData = getPracticeData();
   return {
     props: {
       allPostsData,
-      allPracticeData
-    }
-  }
+      allPracticeData,
+    },
+  };
 }
 
 export default function Home({ allPostsData, allPracticeData }) {
@@ -58,5 +58,5 @@ export default function Home({ allPostsData, allPracticeData }) {
         </section>
       </Layout>
     </Provider>
-  )
+  );
 }

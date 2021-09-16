@@ -6,7 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "local": "env-cmd -f env/.env next dev"
+    "local": "env-cmd -f env/.env next dev",
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "printWidth": 100
   },
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
@@ -27,5 +37,11 @@
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "sass": "^1.37.0"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1"
   }
 }
