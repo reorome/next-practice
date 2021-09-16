@@ -1,0 +1,1 @@
+select * from items where id = ${id}
