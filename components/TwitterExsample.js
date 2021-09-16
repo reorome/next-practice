@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react'
-import Script from 'next/script';
-import { TwitterTweetEmbed, TwitterTimelineEmbed } from 'react-twitter-embed'
+import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 
 export default function TwitterExsample({ tweetList }) {
