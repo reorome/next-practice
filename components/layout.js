@@ -6,12 +6,73 @@ import Link from 'next/link';
 import Box from '@material-ui/core/Box';
 import Drawer from '@material-ui/core/Drawer';
 import TwitterExsample from '@/components/TwitterExsample';
+import IconButton from '@mui/material/IconButton';
+import { styled, useTheme } from '@mui/material/styles';
+import React, { useEffect } from 'react';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Theme, useMediaQuery } from '@material-ui/core';
 
 const name = 'reorome';
 export const siteTitle = 'Next.js Sample Website';
 const drawerWidth = 300;
 
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-start',
+}));
+
 export default function Layout({ children, home }) {
+  // export const useWindowDimensions = () => {
+  //   const getWindowDimensions = () => {
+  //     const { innerWidth: width, innerHeight: height } = window;
+  //     return {
+  //       width,
+  //       height,
+  //     };
+  //   };
+
+  //   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  //   useEffect(() => {
+  //     const onResize = () => {
+  //       setWindowDimensions(getWindowDimensions());
+  //     };
+  //     window.addEventListener('resize', onResize);
+  //     return () => window.removeEventListener('resize', onResize);
+  //   }, []);
+  //   return windowDimensions;
+  // };
+
+  // const { width, height } = useWindowDimensions();
+
+  // const { isMbileSize } = useSize();
+  // const theme = useTheme();
+  // console.log(theme);
+  // console.log(theme.breakpoints.up('xs'));
+
+  const useSize = () => {
+    const isMobileSize = useMediaQuery('(min-width:600px)');
+    console.log(isMobileSize);
+    return { isMobileSize };
+  };
+  const { isMobileSize } = useSize();
+  const [open, setOpen] = React.useState(isMobileSize);
+
+  useEffect(() => {
+    setOpen(isMobileSize);
+  }, [isMobileSize]);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -71,10 +132,22 @@ export default function Layout({ children, home }) {
             boxSizing: 'border-box',
           },
         }}
-        variant='permanent'
+        variant='persistent'
         anchor='right'
+        open
       >
-        <TwitterExsample></TwitterExsample>
+        <DrawerHeader>
+          {open ? (
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronRightIcon />
+            </IconButton>
+          ) : (
+            <IconButton onClick={handleDrawerOpen}>
+              <ChevronLeftIcon />
+            </IconButton>
+          )}
+        </DrawerHeader>
+        {open ? <TwitterExsample></TwitterExsample> : <></>}
       </Drawer>
       {!home && (
         <div className={styles.backToHome}>
