@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 // import rootReducer from './reducers'
 import store from '../store/store.js';
+import { createTheme, Theme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -23,40 +25,42 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData, allPracticeData }) {
   // const store = createStore(rootReducer)
-
+  const theme = createTheme({});
   return (
-    <Provider store={store}>
-      <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
-        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>デモ&練習ページ</h2>
-          <ul>
-            {allPracticeData.map(({ id }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/practice/${id}`}>
-                  <a>{id}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <h2 className={utilStyles.headingLg}>Blog</h2>
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>
-                  <a>{title}</a>
-                </Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </Layout>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Layout home>
+          <Head>
+            <title>{siteTitle}</title>
+          </Head>
+          <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+            <h2 className={utilStyles.headingLg}>デモ&練習ページ</h2>
+            <ul>
+              {allPracticeData.map(({ id }) => (
+                <li className={utilStyles.listItem} key={id}>
+                  <Link href={`/practice/${id}`}>
+                    <a>{id}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h2 className={utilStyles.headingLg}>Blog</h2>
+            <ul className={utilStyles.list}>
+              {allPostsData.map(({ id, date, title }) => (
+                <li className={utilStyles.listItem} key={id}>
+                  <Link href={`/posts/${id}`}>
+                    <a>{title}</a>
+                  </Link>
+                  <br />
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Layout>
+      </Provider>
+    </ThemeProvider>
   );
 }
