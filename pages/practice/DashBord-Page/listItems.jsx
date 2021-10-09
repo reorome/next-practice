@@ -10,7 +10,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-export const mainListItems = (
+const mainListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
@@ -45,7 +45,7 @@ export const mainListItems = (
   </div>
 );
 
-export const secondaryListItems = (
+const secondaryListItems = (
   <div>
     <ListSubheader inset>Saved reports</ListSubheader>
     <ListItem button>
@@ -68,3 +68,7 @@ export const secondaryListItems = (
     </ListItem>
   </div>
 );
+
+export default function ListItems() {
+  return { mainListItems, secondaryListItems };
+}
