@@ -134,7 +134,7 @@ export default function Layout({ children, home }) {
         }}
         variant='persistent'
         anchor='right'
-        open
+        open={open}
       >
         <DrawerHeader>
           {open ? (
