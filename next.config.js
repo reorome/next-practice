@@ -1,4 +1,10 @@
-module.exports = {
+const withTM = require('next-transpile-modules')([
+  '@fullcalendar/common',
+  '@fullcalendar/daygrid',
+  '@fullcalendar/react',
+]);
+
+module.exports = withTM({
   reactStrictMode: true,
   webpack: (config, { dev }) => {
     if (dev) {
@@ -10,4 +16,4 @@ module.exports = {
 
     return config;
   },
-};
+});

@@ -56,7 +56,6 @@ export default function Layout({ children, home }) {
 
   const useSize = () => {
     const isMobileSize = useMediaQuery('(min-width:600px)');
-    console.log(isMobileSize);
     return { isMobileSize };
   };
   const { isMobileSize } = useSize();
