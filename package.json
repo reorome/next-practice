@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "local": "env-cmd -f ./env/.env next dev",
+    "local": "env-cmd -f ./npenv/.env next dev",
     "lint": "next lint",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
     "cypress": "cypress open"
@@ -34,6 +34,7 @@
     "classnames": "^2.3.1",
     "date-fns": "^2.23.0",
     "env-cmd": "^10.1.0",
+    "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "^11.0.0",
     "next-transpile-modules": "^8.0.0",
